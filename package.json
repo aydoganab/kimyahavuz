@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/aydoganab/kimyahavuz#readme",
   "devDependencies": {
-    "bootstrap": "^5.0.0-beta3",
+    "bootstrap": "^5.0.0",
     "browser-sync": "^2.26.14",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
