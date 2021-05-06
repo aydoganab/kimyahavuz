@@ -1,5 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+$gray: #424242;
+$blue: #304FFE;
+$red: #C2185B;
+
+$body-bg: #fff;
+$headings-color: #4a4b65;
+
+$display-font-sizes: (
+        1: 4rem,
+        2: 4.5rem,
+        3: 4rem,
+        4: 3rem,
+        5: 3rem,
+        6: 2.5rem
+);
+
+$font-family-sans-serif: 'Inter', sans-serif;
+
+$transition-base: all .25s ease-in-out;
+$transition-fade: opacity .20s linear;
+
+$border-radius:               .625rem;
+$border-radius-sm:            .5rem;
+$border-radius-lg:            1rem;
+
+$nav-link-font-weight: 500;
+$nav-link-color: $gray;
+$nav-link-hover-color: $blue;
+$nav-link-padding-x: 1.5rem;
+
 @import "node_modules/bootstrap/scss/bootstrap";
+
+.kw-home{
+  background-color: #f7f7fc;
+}
 
 .bi{
   vertical-align: -0.1em;
 }
+
+
