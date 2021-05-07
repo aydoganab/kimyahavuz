@@ -40,4 +40,16 @@ $nav-link-padding-x: 1.5rem;
   vertical-align: -0.1em;
 }
 
+.shadow-hover{
+  &:hover{
+    @extend .shadow;
+  }
+}
+
+.shadow-sm-hover{
+  &:hover{
+    @extend .shadow-sm;
+  }
+}
+
 
