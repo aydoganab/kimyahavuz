@@ -21,22 +21,49 @@ $font-family-sans-serif: 'Inter', sans-serif;
 $transition-base: all .25s ease-in-out;
 $transition-fade: opacity .20s linear;
 
-$border-radius:               .625rem;
-$border-radius-sm:            .5rem;
-$border-radius-lg:            1rem;
+$border-radius:               .5rem;
+$border-radius-sm:            .375rem;
+$border-radius-lg:            0.625rem;
 
 $nav-link-font-weight: 500;
 $nav-link-color: $gray;
 $nav-link-hover-color: $blue;
-$nav-link-padding-x: 1.5rem;
+$nav-link-padding-x: 0;
+
+$input-btn-focus-width:         .1rem !default;
+$input-btn-focus-color-opacity: .6 !default;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
-.kw-home{
+
+
+//nav
+.kh-nav{
+  .nav-link{
+    @extend .px-2;
+    @extend .px-sm-4;
+  }
+}
+
+//yeni duyuru bell
+#kh-yd{
+  color: $gray;
+  @extend .position-relative;
+  &:hover{
+    @extend .text-primary;
+  }
+}
+
+.kh-yd-num{
+  @extend .position-absolute, .d-flex, .align-items-center, .justify-content-center, .bg-danger, .text-white, .rounded-circle;
+  font-size: 0.625rem; width: 1rem; height: 1rem; top: -0.125rem; right: -0.125rem;
+}
+
+.kh-banner{
   background-color: #f7f7fc;
 }
 
-.bi{
+.icon{
   vertical-align: -0.1em;
 }
 
