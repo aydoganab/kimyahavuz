@@ -49,6 +49,7 @@ $input-btn-focus-color-opacity: .6 !default;
 #kh-yd{
   color: $gray;
   @extend .position-relative;
+  @extend .ps-2;
   &:hover{
     @extend .text-primary;
   }
@@ -60,7 +61,7 @@ $input-btn-focus-color-opacity: .6 !default;
 }
 
 .kh-banner{
-  background-color: #f7f7fc;
+  background-color: rgba(118,109,244,0.08);
 }
 
 .icon{

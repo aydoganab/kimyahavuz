@@ -5593,7 +5593,7 @@ textarea.form-control-lg {
 .ps-1 {
   padding-left: 0.25rem !important; }
 
-.ps-2 {
+.ps-2, #kh-yd {
   padding-left: 0.5rem !important; }
 
 .ps-3 {
@@ -7586,7 +7586,7 @@ textarea.form-control-lg {
   right: -0.125rem; }
 
 .kh-banner {
-  background-color: #f7f7fc; }
+  background-color: rgba(118, 109, 244, 0.08); }
 
 .icon {
   vertical-align: -0.1em; }
