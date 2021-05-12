@@ -19,6 +19,7 @@
   "devDependencies": {
     "bootstrap": "^5.0.0",
     "browser-sync": "^2.26.14",
+    "connect-modrewrite": "^0.10.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cache-bust": "^1.4.1",

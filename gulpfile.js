@@ -6,6 +6,7 @@ let rename = require('gulp-rename');
 let headerFooter = require('gulp-headerfooter');
 let htmlMin = require('gulp-htmlmin');
 let browserSync = require('browser-sync');
+let modRewrite = require('connect-modrewrite');
 
 
 gulp.task('sass', function () {
@@ -23,11 +24,15 @@ gulp.task('buildHtml', function () {
         .pipe(gulp.dest('./dev/'))
 });
 
+let modrew = require("./src/modrew");
 gulp.task('browserSync_DEV', function () {
     browserSync.init({
         server: {
             baseDir: ["./dev/", "./assets/"],
-            watchEvents: ["add", "change", 'unlink']
+            watchEvents: ["add", "change", 'unlink'],
+            middleware: [
+                modRewrite(modrew)
+            ]
         }
     });
 });

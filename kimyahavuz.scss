@@ -45,19 +45,9 @@ $input-btn-focus-color-opacity: .6 !default;
   }
 }
 
-//yeni duyuru bell
-#kh-yd{
-  color: $gray;
-  @extend .position-relative;
-  @extend .ps-2;
-  &:hover{
-    @extend .text-primary;
-  }
-}
-
-.kh-yd-num{
+.yeni-duyuru-sayisi{
   @extend .position-absolute, .d-flex, .align-items-center, .justify-content-center, .bg-danger, .text-white, .rounded-circle;
-  font-size: 0.625rem; width: 1rem; height: 1rem; top: -0.125rem; right: -0.125rem;
+  font-size: 0.625rem; width: 1rem; height: 1rem; top: -0.25rem; right: -0.25rem;
 }
 
 .kh-banner{
@@ -78,6 +68,43 @@ $input-btn-focus-color-opacity: .6 !default;
   &:hover{
     @extend .shadow-sm;
   }
+}
+
+//duyurular
+.row-duyuru {
+  @extend .row, .justify-content-center;
+}
+
+.col-duyuru {
+  @extend .col-md-10;
+}
+
+.duyuru-item {
+  @extend .card, .mb-4, .shadow-hover, .position-relative;
+}
+
+.span-duyuru {
+  @extend .badge, .position-absolute, .rounded-pill, .fw-light, .bg-primary;
+  top: -11px;
+  left: 10px;
+  //font-size: 0.625rem;
+  //background-color: #766df4;
+}
+
+.duyuru-body {
+  @extend .card-body, .d-flex, .align-items-center;
+}
+
+.duyuru-p {
+  @extend .mb-0, .text-truncate;
+}
+
+.duyuru-date {
+  @extend .text-muted, .ps-2, .ms-auto, .text-nowrap;
+}
+
+.duyuru-a{
+  @extend .stretched-link;
 }
 
 

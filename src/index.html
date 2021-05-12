@@ -7,13 +7,14 @@
     </svg>
   </div>
   
+  <div class="py-0 py-md-3"></div>
   
-  <div class="container-xxl py-3 py-md-5 position-relative" style="z-index: 2;">
+  <div class="container-xxl py-3 py-md-5 position-relative" style="z-index: 2">
     
     <div class="row">
       
       <div class="col-lg-5 text-center text-lg-start align-self-center">
-        <h1 class="display-5 pt-2 pt-lg-0 text-primary">İTÜ Kimya Havuz Dersleri</h1>
+        <h1 class="display-5 pt-2 pt-lg-0 pb-3 pb-md-0 text-primary">İTÜ Kimya Havuz Dersleri</h1>
       </div>
       
       <div class="col-lg-7">
@@ -24,24 +25,26 @@
               <p class="lead text-muted">Ödev, sınav ve deney notlarınızı sorgulayın. Deney programınızı görüntüleyin.</p>
             </div>
             <div class="col-md-7">
-              <form>
+              <form class="validate" id="sform" novalidate>
                 <div class="mb-3">
                   <label class="form-label fw-bold">Ders</label>
-                  <select name="ders" id="ders" class="form-select w-auto">
+                  <select name="ders" id="ders" class="form-select w-auto" required>
                     <option value="">Seçiniz</option>
                     <option value="kim101">KIM 101/101E</option>
                     <option value="kim101el">KIM 101EL</option>
                   </select>
+                  <div class="invalid-feedback">Ders seçiniz</div>
                 </div>
                 <div class="mb-3 d-none" id="div-donem" style="transition: all 0.5s ease-in;">
                   <label class="form-label fw-bold">Dönem</label>
                   <select name="donem" id="donem" class="form-select w-auto">
-                    <option value="">2020 / 2021 Bahar</option>
+                    <option value="2021Bahar">2020 / 2021 Bahar</option>
                   </select>
                 </div>
                 <div class="mb-3">
                   <label class="form-label fw-bold">Öğrenci no</label>
-                  <input class="form-control" type="number" min="0" max="999999999" step="1" name="stdno" placeholder="9 haneli öğrenci numaranız" style="letter-spacing: 1px">
+                  <input class="form-control" type="number" min="0" max="999999999" required step="1" name="stdno" id="stdno" placeholder="9 haneli öğrenci numaranız" style="letter-spacing: 1px">
+                  <div class="invalid-feedback">9 haneli öğrenci numranızı giriniz</div>
                 </div>
                 <button type="submit" class="btn btn-outline-primary rounded-pill">Sorgula</button>
               </form>
@@ -55,36 +58,30 @@
   
   </div>
   
-  <div class="py-4"></div>
+  
+  <div class="py-4 py-md-5"></div>
+
 
 </div>
 
-<div class="container-xxl" id="yeni-duyurular">
+<div class="container-xxl d-none" id="guncel-duyurular">
   
   <h4 class="text-center mb-3">Güncel Duyurular</h4>
   
-  <div class="row justify-content-center">
-    <div class="col-md-10">
-      
-      <div class="card mb-4 shadow-hover position-relative">
-        <span class="badge bg-dark position-absolute rounded-pill fw-light" style="top: -9px; left: 10px; font-size: 0.625rem">KIM 101/101E</span>
-        <div class="card-body d-flex align-items-center">
-          <p class="mb-0 text-truncate">Lorem ipsum odor sit amet. Lorem ipsum odor sit</p>
-          <small class="text-muted ps-2 ms-auto text-nowrap">16 May</small>
-        </div>
-        <a href="#" class="stretched-link"></a>
-      </div>
-      
-      <div class="card mb-4 shadow-hover position-relative">
-        <span class="badge bg-secondary position-absolute rounded-pill fw-light" style="top: -9px; left: 10px; font-size: 0.625rem">KIM 101EL</span>
-        <div class="card-body pt-4 pb-3 d-flex align-items-center">
-          <p class="mb-0 text-truncate">Lorem ipsum odor sit amet</p>
-          <small class="text-muted ps-2 ms-auto text-nowrap">16 May</small>
-        </div>
-        <a href="#" class="stretched-link"></a>
-      </div>
+  <div class="row-duyuru" id="ryds">
     
-    </div>
+    <!--SUTRUCTURE-->
+    <!--<div class="col-duyuru">
+      <div class="duyuru-item">
+        <span class="span-duyuru">KIM 101</span>
+        <div class="duyuru-body">
+          <p class="duyuru-p">Duyuru başlığı</p>
+          <small class="duyuru-date">13 Mayıs</small>
+        </div>
+      </div>
+      <a href="link-to-duyuru" class="duyuru-a"></a>
+    </div>-->
+    
   </div>
 
 </div>
@@ -92,14 +89,106 @@
 <script>
   //toggle div-donem display
   let ders = document.getElementById("ders");
+  let donem = document.getElementById("donem");
   let div_donem = document.getElementById("div-donem");
   ders.onchange = function () {
-    if (this.value === "kim101") {
+    if (this.value === "kim101" && donem.length > 1) {
       div_donem.classList.remove("d-none");
     } else {
       div_donem.classList.add('d-none');
     }
   };
   
-  //
+  //submit from
+  let sform = document.getElementById("sform");
+  sform.onsubmit = function (ev) {
+    ev.preventDefault();
+    let page = ders.value === "kim101" ? "kim101-sonuc" : "kim101el-sonuc";
+    let href = "./" + page + "/" + donem.value + "/" + document.getElementById("stdno").value;
+    document.location.href = href;
+  };
+  
+  //validation
+  (function () {
+    'use strict'
+    
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    let forms = document.querySelectorAll('.validate')
+    
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })();
+  
+  //guncel duyurular
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function () {
+    let r = JSON.parse(xhr.responseText);
+    if (r.s) {
+      let data = r.data;
+      
+      //set bell
+      if (data.length > 0) {
+        let liyds = document.getElementById("li-yds");
+        liyds.setAttribute("title", data.length + " güncel duyuru");
+        liyds.classList.remove("d-none");
+        document.getElementById("yds").append(document.createTextNode(data.length));
+        
+        //populate
+        let yds = document.getElementById("yds");
+        let ryds = document.getElementById("ryds");
+  
+        for (let i=0; i<data.length; i++) {
+          
+          let duyuru = data[i];
+          
+          let colDuyuru = document.createElement("div");
+          colDuyuru.className = "col-duyuru";
+          
+          let duyuruItem = document.createElement("div");
+          duyuruItem.className = "duyuru-item";
+          let spanDuyuru = document.createElement("span");
+          spanDuyuru.className = "span-duyuru";
+          spanDuyuru.append(document.createTextNode(duyuru.ilgi));
+          
+          let duyuruBody = document.createElement("div");
+          duyuruBody.className = "duyuru-body";
+          let duyuruP = document.createElement("p");
+          duyuruP.className = "duyuru-p";
+          duyuruP.append(document.createTextNode(duyuru.baslik));
+          let duyuruDate=document.createElement("small");
+          duyuruDate.className = "duyuru-date";
+          duyuruDate.append(document.createTextNode(duyuru.sd));
+          duyuruBody.append(duyuruP);
+          duyuruBody.append(duyuruDate);
+          
+          let duyuruA = document.createElement("a");
+          duyuruA.className = "duyuru-a";
+          duyuruA.setAttribute("href", duyuru.url);
+  
+          duyuruItem.append(spanDuyuru);
+          duyuruItem.append(duyuruBody);
+          duyuruItem.append(duyuruA);
+  
+          colDuyuru.append(duyuruItem);
+  
+          ryds.append(colDuyuru);
+        }
+  
+        document.getElementById("guncel-duyurular").classList.remove("d-none");
+        
+      }
+    }
+  };
+  xhr.open("GET", "http://160.75.18.250/otmnew/service/guncel-duyurular", true);
+  xhr.send();
 </script>
