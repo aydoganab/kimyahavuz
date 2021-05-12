@@ -1,0 +1,8 @@
+[
+  "^/duyuru/(.*)/(.*)$ ./duyuru-goster.html [L]",
+  "^/kim101-sonuc/(.*)$ ./kim101-sonuc.html [L]",
+  "^/kim101el-sonuc/(.*)$ ./kim101el-sonuc.html [L]",
+  "kim101-101e kim101-101e.html [L]",
+  "kim101el kim101el.html [L]",
+  "duyurular duyurular.html [L]"
+]
