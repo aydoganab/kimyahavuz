@@ -6,6 +6,7 @@ let rename = require('gulp-rename');
 let headerFooter = require('gulp-headerfooter');
 let htmlMin = require('gulp-htmlmin');
 let replace = require('gulp-replace');
+let terser = require('gulp-terser');
 let browserSync = require('browser-sync');
 let modRewrite = require('connect-modrewrite');
 
@@ -42,6 +43,13 @@ gulp.task('buildJS', function () {
         .pipe(replace('###async_server###', function () {
             return async_server;
         }))
+        /*.pipe(terser({
+            ecma:6,
+            keep_fnames: false,
+            mangle: {
+                toplevel: true
+            }
+        }))*/
         .pipe(gulp.dest('./dev/'))
 });
 
