@@ -33,9 +33,15 @@ $nav-link-padding-x: 0;
 $input-btn-focus-width:         .1rem !default;
 $input-btn-focus-color-opacity: .6 !default;
 
+$card-cap-bg: rgba(118, 109, 244, 0.08);
+
+
 @import "node_modules/bootstrap/scss/bootstrap";
 
-
+.btn-xs {
+  @extend .btn-sm;
+  padding: 0.05rem 0.5rem;
+}
 
 //nav
 .kh-nav{
