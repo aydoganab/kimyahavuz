@@ -31,7 +31,6 @@ xhr.onload = function () {
         souy.append(email);
     }
 
-
     //sınav yeri bilgileri
     if (Object.keys(responseObject.sinav_yeri).length > 0) {
 
@@ -88,30 +87,33 @@ xhr.onload = function () {
     //genel ortalama ve notlar
     if (responseObject.grades.length > 0) {
 
-        let tbGort = document.getElementById("tbgort");
+        let cbGort = document.getElementById("cbgort");
 
         for (let g = 0; g < responseObject.grades.length; g++) {
 
             let grade = responseObject.grades[g];
 
-            let trGort = document.createElement("tr");
+            let rowGort = document.createElement("div");
+            rowGort.classList.add("row", "gx-3", "mb-3", "align-items-center");
 
-            let thInfo = document.createElement("th");
-            thInfo.setAttribute("scope", "col");
-            thInfo.innerHTML=grade.inf;
+            let colInfo = document.createElement("div");
+            colInfo.classList.add("col", "fw-bold")
+            colInfo.innerHTML=grade.inf;
 
-            let tdGort = document.createElement("td");
-            tdGort.innerHTML=grade.ort;
+            let colGort = document.createElement("div");
+            colGort.classList.add("col");
+            colGort.innerHTML=grade.ort;
 
-            let thGrade = document.createElement("th");
-            thGrade.setAttribute("scope", "col");
-            thGrade.innerHTML = "Notu";
+            let colGrade = document.createElement("div");
+            colGrade.classList.add("col", "fw-bold", "ms-auto");
+            colGrade.innerHTML = "Notu";
 
-            let tdNot = document.createElement("td");
-            tdNot.innerHTML=grade.grade;
+            let colNot = document.createElement("div");
+            colNot.classList.add("col");
+            colNot.innerHTML=grade.grade;
 
-            trGort.append(thInfo, tdGort, thGrade, tdNot);
-            tbGort.append(trGort);
+            rowGort.append(colInfo, colGort, colGrade, colNot);
+            cbGort.append(rowGort);
         }
 
         document.getElementById("gort").classList.remove("d-none");

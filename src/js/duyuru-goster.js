@@ -1,31 +1,43 @@
 //get list type
-let a = window.location.href.split('/');
-let b = a[a.length - 1].split('.')[0];
+let href = window.location.href.split('/');
+let duyuruID = href[href.length - 1].split('.')[0];
 
 let xhr = new XMLHttpRequest();
 xhr.onload = function () {
     let r = JSON.parse(xhr.responseText);
     if (r.s) {
+        document.getElementById("db").innerHTML = r.baslik;
+        document.getElementById("dt").innerHTML = r.tarih;
+        document.getElementById("dm").innerHTML = r.dm;
+        document.getElementById("do").innerHTML = r.ekleyen;
 
-        let baslik = document.createElement("h4");
-        baslik.className = "text-dark";
-        baslik.append(document.createTextNode(r.baslik));
+        //ekler
+        if (r.ekler.length > 0) {
+            let de = document.getElementById("de");
+            for (let i = 0; i < r.ekler.length; i++) {
+                let ek = r.ekler[i];
+                let lnk = document.createElement("a");
+                lnk.setAttribute("href", "###async_server###/duyuruek/?" + ek.link);
+                lnk.setAttribute("target", "_blank");
+                lnk.classList.add("mt-2","text-decoration-none", "d-block");
+                lnk.innerHTML=ek.dosya;
+                de.append(lnk);
+            }
+            //set attachment indicator link
+            let atHref = window.location.href.split("#");
+            atHref = atHref[0] + "#duyuru-ekleri";
+            document.getElementById("aattin").setAttribute("href", atHref);
+            document.getElementById("attin").classList.remove("d-none");
+            //ekleri göster
+            document.getElementById("duyuru-ekleri").classList.remove("d-none");
+        }
 
-        let tarih = document.createElement("h6");
-        tarih.className="py-2";
-        tarih.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="icon" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>';
-        tarih.append(document.createTextNode(r.tarih));
+        //duyuruyu göster
+        document.getElementById("dcon").classList.remove("d-none");
 
-        let metin = document.createElement("div");
-        metin.classList.add("p-3", "border", "shadow-sm", "rounded");
-        metin.innerHTML = r.dm;
-
-        let elem = document.getElementById("dc");
-        dc.append(baslik);
-        dc.append(tarih);
-        dc.append(metin);
-
+    }else {
+        document.getElementById("dyok").classList.remove("d-none");
     }
 };
-xhr.open("GET", "###async_server###/service/duyuru-details?id=" + b, true);
+xhr.open("GET", "###async_server###/service/duyuru-details?id=" + duyuruID, true);
 xhr.send();
