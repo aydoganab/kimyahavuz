@@ -89,11 +89,11 @@
             </div>
     
             <!--ödev ve sınav notları-->
-            <div class="card d-none" id="osnCon">
+            <div class="card mb-3 mb-md-4 d-none" id="osnCon">
                 <div class="card-header fw-bold">Ödev ve sınav notları</div>
                 <div class="card-body pb-0">
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle mb-0">
+                        <table class="table table-hover align-middle mb-1">
                             <thead>
                             <tr>
                                 <th></th>
@@ -106,10 +106,31 @@
                         </table>
                     </div>
                 </div>
-                <div class="card-footer bg-transparent border-top-0 text-muted"><b>S.O.</b>: Sınav ortalaması, <b>G</b>: Sınava girmedi</div>
+                <div class="card-footer bg-transparent border-top-0 text-muted small"><b>G</b>: Sınava girmedi, ödevi teslim etmedi, <b>S.O.</b>: Sınava giren öğrencilerin ortalaması.</div>
             </div>
 
+            <!--genel ortalama ve notlar-->
+            <div class="card mb-3 mb-md-4 d-none" id="gort">
+                <div class="card-header fw-bold">Genel ortalama ve notlar</div>
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tbody id="tbgort"></tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!--harfli not aralıkları-->
+            <div class="card mb-3 mb-md-4 d-none" id="harfli">
+                <div class="card-header fw-bold">Harfli not aralıkları</div>
+                <div class="card-body table-responsive mb-0">
+                    <table class="table table-borderless">
+                        <tbody id="tbharfli"></tbody>
+                    </table>
+                </div>
+            </div>
 
+            <!--detaylar-->
+            <div id="sdetay"></div>
 
         </div>
     </div>

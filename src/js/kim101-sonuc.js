@@ -61,16 +61,20 @@ xhr.onload = function () {
             snotu.innerHTML=sitem.notu;
 
             let sgort = document.createElement("td");
-            sgort.innerHTML=sitem.gort;
+            if(sitem.hasOwnProperty("sinav_ort")){
+                sgort.innerHTML=sitem.sinav_ort;
+            }
 
             let sdetay = document.createElement("td");
             sdetay.classList.add("text-end");
-            let btn = document.createElement("button");
-            btn.setAttribute("type", "button");
-            btn.setAttribute("data-s", sitem.turu);
-            btn.classList.add("btn", "btn-sm", "btn-outline-secondary");
-            btn.append(document.createTextNode("Detaylar"));
-            sdetay.append(btn);
+            if (sitem.hasOwnProperty("detay")) {
+                let btn = document.createElement("button");
+                btn.setAttribute("type", "button");
+                btn.setAttribute("data-s", sitem.turu);
+                btn.classList.add("btn", "btn-sm", "btn-outline-secondary", "btn-odev-detay");
+                btn.append(document.createTextNode("Detaylar"));
+                sdetay.append(btn);
+            }
 
             str.append(sth, snotu, sgort, sdetay);
 
@@ -81,8 +85,63 @@ xhr.onload = function () {
         document.getElementById("osnCon").classList.remove("d-none");
     }
 
+    //genel ortalama ve notlar
+    if (responseObject.grades.length > 0) {
 
+        let tbGort = document.getElementById("tbgort");
 
+        for (let g = 0; g < responseObject.grades.length; g++) {
+
+            let grade = responseObject.grades[g];
+
+            let trGort = document.createElement("tr");
+
+            let thInfo = document.createElement("th");
+            thInfo.setAttribute("scope", "col");
+            thInfo.innerHTML=grade.inf;
+
+            let tdGort = document.createElement("td");
+            tdGort.innerHTML=grade.ort;
+
+            let thGrade = document.createElement("th");
+            thGrade.setAttribute("scope", "col");
+            thGrade.innerHTML = "Notu";
+
+            let tdNot = document.createElement("td");
+            tdNot.innerHTML=grade.grade;
+
+            trGort.append(thInfo, tdGort, thGrade, tdNot);
+            tbGort.append(trGort);
+        }
+
+        document.getElementById("gort").classList.remove("d-none");
+
+    }
+
+    //harfli not aralıkları
+    if (responseObject.harfli.length > 0) {
+
+        let tbHarfli = document.getElementById("tbharfli");
+
+        for (let h = 0; h < responseObject.harfli.length; h++) {
+            let elemHarfli = responseObject.harfli[h];
+
+            let trHarfli=document.createElement("tr");
+
+            let thHarfli=document.createElement("th");
+            thHarfli.setAttribute("scope", "col");
+            thHarfli.innerHTML = elemHarfli.grade;
+
+            let tdHarfli = document.createElement("td");
+            tdHarfli.innerHTML=elemHarfli.ul+"&mdash;"+elemHarfli.al;
+
+            trHarfli.append(thHarfli, tdHarfli);
+            tbHarfli.append(trHarfli);
+        }
+
+        document.getElementById("harfli").classList.remove("d-none");
+
+    }
 
     //detaylar on click
     let db = document.querySelectorAll(".btn-odev-detay");
