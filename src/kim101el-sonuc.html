@@ -1,0 +1,110 @@
+<div class="kh-banner py-3 py-md-5">
+    <h3 class="text-center text-primary mb-0">KIM 101EL SONUÇLARI</h3>
+</div>
+
+<div class="container-xxl pt-3 pt-md-5">
+    <div class="row justify-content-center">
+        <div class="col-xxl-9 col-lg-10">
+        
+            
+            <div class="row justify-content-center g-3 g-md-4">
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header fw-bold">Student info</div>
+                        <div class="card-body">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                <tr>
+                                    <th scope="col">Number</th>
+                                    <td id="siNo"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <td id="siName"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">CRN</th>
+                                    <td id="siCrn"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Faculty</th>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="" alt="" id="siImg" class="rounded-circle me-2" style="max-height: 25px">
+                                            <span id="siOuy"></span>
+                                            <a href="" id="siEmail" class="ms-auto">Email</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header fw-bold">Lab. info</div>
+                        <div class="card-body">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                <tr>
+                                    <th scope="col">Lab</th>
+                                    <td id="liLab"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Day</th>
+                                    <td id="liDay"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Hours</th>
+                                    <td id="liHours"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <h5 class="text-dark">Calendar and grades</h5>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover align-middle">
+                            <thead class="bg-light">
+                            <tr>
+                                <th>Exp. Week</th>
+                                <th>Date*</th>
+                                <th>Exp. No</th>
+                                <th>Experiment</th>
+                                <th>Grade**</th>
+                            </tr>
+                            </thead>
+                            <tbody id="egTB"></tbody>
+                            <caption class="small">* Experiment dates may not be correct all the time. Please refer to&nbsp;<a href="kim101el">KIM 101EL page</a>&nbsp;to be sure about the experiment dates.<br>** <strong>G</strong>: Not attended, <strong>R</strong>: Has a medical report, <strong>A</strong>: Not accepted</caption>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header fw-bold">Assigned assistants</div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-borderless">
+                                    <tbody id="asTB"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+<script src="lab-sonuc.js"></script>
