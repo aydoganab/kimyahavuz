@@ -8,7 +8,7 @@
     
     
             <!--öğrenci bilgileri-->
-            <div class="card mb-3 mb-md-4">
+            <div class="card mb-3 mb-md-4 d-none" id="stdInf">
                 <div class="card-header fw-bold text-dark">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor">
                         <g>
@@ -126,10 +126,36 @@
             </div>
 
             <!--detaylar-->
-            <div id="sdetay"></div>
+            <div class="d-none" id="sinav-detay">
+                <div class="card">
+                    <div class="card-header fw-bold"><span id="sdTitle"></span> Detayları</div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Soru No</th>
+                                <th>Not</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbDetay"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
+    
+    <div class="bg-light p-3 p-md-5 rounded d-none" id="noStd">
+        <h1 class="display-6">Öğrenci bulunamadı.</h1>
+        <p class="lead">Girdiğiniz öğrenci numarasına karşılık gelen bir öğrenci sistemde bulunamadı. Lütfen öğrenci numarasının doğru olduğundan emin olunuz.</p>
+    </div>
+    
+    <div class="bg-light p-3 p-md-5 rounded d-none" id="noDonem">
+        <h1 class="display-6">Dönem sınav sonuçları ilan edilmedi.</h1>
+        <p class="lead">Sorgulama yapmak istediğiniz döneme ait aktif sonuç ilanı bulunmamaktadır. Lütfen daha sonra tekrar deneyiniz.</p>
+    </div>
+    
 </div>
 
 <script src="kim101-sonuc.js"></script>
