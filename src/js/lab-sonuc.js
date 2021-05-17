@@ -71,17 +71,23 @@ xhr.onload = function () {
         //asistanlar
         Array.from(responseObject.ast).forEach(ast => {
 
-            let td1 = kh_createElement("td");
+            let td1 = kh_createElement("th");
+            td1.setAttribute("scope", "col");
             td1.innerHTML=ast.expno;
 
             let td2 = kh_createElement("td");
-            td2.innerHTML=ast.name;
+            let resim = kh_createElement("img");
+            resim.setAttribute("src", "###async_server###/userpics/" + ast.resim);
+            resim.setAttribute("alt", ast.name);
+            resim.style.maxHeight = "25px";
+            resim.classList.add("rounded-circle", "me-2");
+            td2.append(resim);
+            td2.append(document.createTextNode(ast.name));
 
             let td3 = kh_createElement("td");
-
             let eposta = kh_createElement("a");
             eposta.setAttribute("href", "mailto:" + ast.eposta);
-            eposta.innerHTML = "Eposta";
+            eposta.innerHTML = '<i class="fa fa-envelope-o fa-lg"></i>';
 
 
             td3.append(eposta);
@@ -91,6 +97,8 @@ xhr.onload = function () {
 
             kh_getElement("asTB").append(tr);
         });
+
+        kh_getElement("lsCon").classList.remove("d-none");
 
     }
 };

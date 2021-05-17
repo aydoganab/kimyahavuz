@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
+$enable-validation-icons: false;
+
 $gray: #424242;
 $blue: #304FFE;
 $red: #C2185B;
@@ -34,6 +36,7 @@ $input-btn-focus-width:         .1rem !default;
 $input-btn-focus-color-opacity: .6 !default;
 
 $card-cap-bg: rgba(118, 109, 244, 0.08);
+$card-cap-padding-y: 0.8125rem;
 
 
 @import "node_modules/bootstrap/scss/bootstrap";
@@ -114,3 +117,21 @@ $card-cap-bg: rgba(118, 109, 244, 0.08);
 }
 
 
+//FA
+$fa-font-path: "./fonts";
+$fa-font-size-base: 1rem;
+//@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+//@import "node_modules/@fortawesome/fontawesome-free/scss/regular";
+//@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+
+@import "node_modules/@fortawesome/fontawesome-free/scss/variables";
+@import "node_modules/@fortawesome/fontawesome-free/scss/mixins";
+@import "node_modules/@fortawesome/fontawesome-free/scss/core";
+@import "node_modules/@fortawesome/fontawesome-free/scss/larger";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fixed-width";
+//@import "node_modules/@fortawesome/fontawesome-free/scss/list";
+//@import "node_modules/@fortawesome/fontawesome-free/scss/animated";
+//@import "node_modules/@fortawesome/fontawesome-free/scss/rotated-flipped";
+//@import "node_modules/@fortawesome/fontawesome-free/scss/stacked";
+
+@import "khFonts";

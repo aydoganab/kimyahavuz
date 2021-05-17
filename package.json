@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/aydoganab/kimyahavuz#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "bootstrap": "^5.0.0",
     "browser-sync": "^2.26.14",
     "connect-modrewrite": "^0.10.2",

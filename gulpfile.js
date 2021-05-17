@@ -74,6 +74,6 @@ gulp.task('watch', function () {
     gulp.watch("dev/*.*").on("change", browserSync.reload);
 });
 
-gulp.task('bulid_dev', gulp.series('buildHTML', 'buildJS'));
+gulp.task('build_dev', gulp.series('buildHTML', 'buildJS'));
 
 gulp.task('dev_test', gulp.parallel('browserSync_DEV', 'watch'));
