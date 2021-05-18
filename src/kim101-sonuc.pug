@@ -1,0 +1,107 @@
+extends layout/layout
+
+block title_keywords
+
+	title KIM 101/101E Sonuçları
+
+block page_content
+	.kh-banner.py-3.py-md-5
+		h3.text-center.text-primary.mb-0 KIM 101/101E SONUÇLARI
+	.container-xxl.pt-3.pt-md-5
+		.row.justify-content-center
+			.col-xxl-6.col-xl-7.col-lg-8.col-md-9.col-sm-10
+				// öğrenci bilgileri
+				.card.mb-3.mb-md-4.d-none#stdInf
+					.card-header.fw-bold.text-dark
+						i.fa.fa-id-card
+						span Öğrenci bilgileri
+
+					.card-body
+						table.table.table-borderless.align-middle.mb-0
+							tbody
+								tr
+									th(scope='col') No
+									td#sno
+								tr
+									th(scope='col') Ad Soyad
+									td#sname
+								tr
+									th(scope='col') Dil
+									td#sdil
+								tr
+									th(scope='col') CRN
+									td#scrn
+								tr
+									th(scope='col') Öğretim üyesi
+									td
+										.d-flex.align-items-center#souy.
+
+
+				// sınav yeri bilgileri
+				.card.mb-3.mb-md-4.d-none#loc
+					.card-header.fw-bold Sınav yeri bilgileri
+					.card-body
+						table.table.table-borderless.align-middle.mb-0
+							tbody
+								tr
+									th(scope='col') Dönem
+									td#locdonem
+								tr
+									th(scope='col') Sınav yeri
+									td#locsy
+								tr
+									th(scope='col') Grup no
+									td#locgr
+								tr
+									th(scope='col') Sıra no
+									td#locsn
+					.card-footer.bg-transparent.text-end.border-top-0
+						a.card-link.text-decoration-none(href='https://www.sis.itu.edu.tr/TR/obs-hakkinda/lisans-program-kodlari.php') Bina kodları
+				// ödev ve sınav notları
+				.card.mb-3.mb-md-4.d-none#osnCon
+					.card-header.fw-bold Ödev ve sınav notları
+					.card-body.pb-0
+						.table-responsive
+							table.table.table-hover.align-middle.mb-1
+								thead
+									tr
+										th
+										th Not
+										th S.O.
+										th
+								tbody#tbnot
+					.card-footer.bg-transparent.border-top-0.text-muted.small
+						b G:
+						|  Sınava girmedi, ödevi teslim etmedi,
+						b S.O.:
+						|  Sınav ortalaması.
+				// genel ortalama ve notlar
+				.card.mb-3.mb-md-4.d-none#gort
+					.card-header.fw-bold Genel ortalama ve notlar
+					.card-body#cbgort
+				// harfli not aralıkları
+				.card.mb-3.mb-md-4.d-none#harfli
+					.card-header.fw-bold Harfli not aralıkları
+					.card-body.table-responsive.mb-0
+						table.table.table-borderless
+							tbody#tbharfli
+				// detaylar
+				.d-none#sinav-detay
+					.card
+						.card-header.fw-bold
+							span#sdTitle
+							|  Detayları
+						.card-body
+							table.table
+								thead
+									tr
+										th Soru No
+										th Not
+								tbody#tbDetay
+		.bg-light.p-3.p-md-5.rounded.d-none#noStd
+			h1.display-6 Öğrenci bulunamadı.
+			p.lead Girdiğiniz öğrenci numarasına karşılık gelen bir öğrenci sistemde bulunamadı. Lütfen öğrenci numarasının doğru olduğundan emin olunuz.
+		.bg-light.p-3.p-md-5.rounded.d-none#noDonem
+			h1.display-6 Dönem sınav sonuçları ilan edilmedi.
+			p.lead Sorgulama yapmak istediğiniz döneme ait aktif sonuç ilanı bulunmamaktadır. Lütfen daha sonra tekrar deneyiniz.
+	script(src='kim101-sonuc.js')

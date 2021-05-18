@@ -1,0 +1,103 @@
+extends layout/layout
+
+block title_keywords
+
+	title KIM 101EL Sonuçları
+
+block page_content
+
+	.kh-banner.py-3.py-md-5
+		h3.text-center.text-primary.mb-0 KIM 101EL SONUÇLARI
+
+	.container-xxl.pt-3.pt-md-5
+
+		.row.justify-content-center
+			.col-xxl-9.col-lg-10
+
+				.row.justify-content-center.g-3.g-md-4.d-none#lsCon
+					.col-md-6
+						.card.h-100
+							.card-header.fw-bold Student info
+							.card-body
+								table.table.table-borderless.mb-0
+									tbody
+										tr
+											th(scope='col') Number
+											td#siNo
+										tr
+											th(scope='col') Name
+											td#siName
+										tr
+											th(scope='col') CRN
+											td#siCrn
+										tr
+											th(scope='col') Faculty
+											td
+												.d-flex.align-items-center
+													img#siImg.rounded-circle.me-2(src, alt, style='max-height: 25px')
+													span#siOuy
+													a#siEmail.ms-auto(href)
+														i.fa.fa-envelope-o.fa-lg
+					.col-md-6
+						.card.h-100
+							.card-header.fw-bold Lab. info
+							.card-body
+								table.table.table-borderless.mb-0
+									tbody
+										tr
+											th(scope='col') Lab
+											td#liLab
+										tr
+											th(scope='col') Day
+											td#liDay
+										tr
+											th(scope='col') Hours
+											td#liHours
+					.col-12
+						.card
+							.card-header.fw-bold
+								i.fa.fa-calendar
+								|  Calendar and grades
+							.card-body.pb-0
+								.table-responsive
+									table.table.table-hover.align-middle
+										thead
+											tr
+												th Exp. Week
+												th Date*
+												th Exp. No
+												th Experiment
+												th Grade**
+										tbody#egTB
+										caption.small
+											| * Experiment dates may not be correct all the time. Please refer to &nbsp;
+											a(href='kim101el') KIM 101EL page
+											| &nbsp;to be sure about the experiment dates.
+											br
+											| **
+											strong G
+											| : Not attended,
+											strong R
+											| : Has a medical report,
+											strong A
+											| : Not accepted
+					.col-12
+						.card
+							.card-header.fw-bold Assigned assistants
+							.card-body
+								.table-responsive
+									table.table.table-borderless.align-middle
+										tbody#asTB
+
+
+
+
+				.bg-light.p-3.p-md-5.rounded.d-none#nostd
+					h1.display-6 Öğrenci bulunamadı
+					p.lead Girdiğiniz öğrenci numarasına karşılık gelen bir öğrenci sistemde bulunamadı. Lütfen öğrenci numarasının doğru olduğundan emin olunuz.
+
+				.bg-light.p-3.p-md-5.rounded.d-none#nodnm
+					h1.display-6 Sonuçlar ilan edilmedi
+					p.lead Sorgulama yapmak istediğiniz döneme dair aktif KIM 101EL sonuç ilanı bulunmamaktadır. Lütfen daha sonra tekrar deneyiniz.
+
+	script(src='lab-sonuc.js')

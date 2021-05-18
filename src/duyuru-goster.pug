@@ -1,0 +1,33 @@
+extends layout/layout
+
+block title_keywords
+
+	title Duyuru
+
+block page_content
+	.kh-banner.py-3.py-md-5
+		h3.text-center.mb-0.text-primary DUYURU
+	.container-xxl.pt-3.pt-md-5
+		.row.justify-content-center
+			.col-lg-8
+				.d-none#dcon
+					h5.text-dark#db
+					.d-flex.align-items-center.justify-content-between.py-2
+						h6
+							i.fa.fa-calendar
+							span#dt
+						.d-none#attin
+							a#aattin.link-dark.me-3(href)
+								i.fa.fa-paperclip
+					.card
+						.card-body#dm
+						.card-body.text-end#do
+						// ekler
+						.card-footer.d-none#duyuru-ekleri
+							h6.card-title.mb-3
+								i.fa.fa-paperclip.fa-lg
+								|  Duyuru ekleri
+							#de
+				.pt-3.p-md-5.bg-light.rounded.d-none#dyok
+					p.lead Ulaşmaya çalıştığınız duyuru bulunamadı.
+	script(src='duyuru-goster.js')

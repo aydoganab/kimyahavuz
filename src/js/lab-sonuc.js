@@ -87,7 +87,9 @@ xhr.onload = function () {
             let td3 = kh_createElement("td");
             let eposta = kh_createElement("a");
             eposta.setAttribute("href", "mailto:" + ast.eposta);
-            eposta.innerHTML = '<i class="fa fa-envelope-o fa-lg"></i>';
+            let fa = kh_createElement("i");
+            fa.classList.add("fa", "fa-envelope-o", "fa-lg");
+            eposta.append(fa);
 
 
             td3.append(eposta);
@@ -100,5 +102,12 @@ xhr.onload = function () {
 
         kh_getElement("lsCon").classList.remove("d-none");
 
+    }else if(responseObject.s == 1){
+
+        kh_getElement("nostd").classList.remove("d-none");
+
+    }else if (responseObject.s == 0) {
+
+        kh_getElement("nodnm").classList.remove("d-none");
     }
 };

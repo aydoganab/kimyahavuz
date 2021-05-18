@@ -16,18 +16,39 @@ let modRewrite = require('connect-modrewrite');
 let htmltopug = require('gulp-html2pug');
 
 let base_href = "https://kimyahavuz.itu.edu.tr/";
-base_href = "http://localhost:3000/";
+//base_href = "http://localhost:3000/";
 
 let async_server = "https://otm.kimya.itu.edu.tr";
-async_server = "http://160.75.18.250/otmnew";
+//async_server = "http://160.75.18.250/otmnew";
+
+let gascript = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-FTRXZNV7C4"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-FTRXZNV7C4");</script>';
 
 
 gulp.task('sass', function () {
     return gulp.src('kimyahavuz.scss')
         .pipe(sass())
-        .pipe(autoprefixer({browserlist: [">= 1%", "last 1 major version", "not dead", "Chrome >= 60", "Firefox >= 60", "Edge >= 16", "iOS >= 10", "Safari >= 10", "Android >= 6", "not Explorer <= 11"]}))
+        .pipe(autoprefixer({
+            browserlist: [">= 1%", "last 1 major version", "not dead", "Chrome >= 60", "Firefox >= 60", "Edge >= 16", "iOS >= 10", "Safari >= 10", "Android >= 6", "not Explorer <= 11"]
+        }))
         .pipe(rename('kimyahavuz.css'))
         .pipe(gulp.dest('dev'));
+});
+
+gulp.task('pugTask', function () {
+    return gulp.src('src/*.pug')
+        .pipe(pug({pretty:true}))
+        .pipe(replace('###base_href###', function () {
+            return base_href;
+        }))
+        .pipe(gulp.dest('dev'));
+});
+
+gulp.task('buildJS', function () {
+    return gulp.src('./src/js/*.js')
+        .pipe(replace('###async_server###', function () {
+            return async_server;
+        }))
+        .pipe(gulp.dest('./dev/'))
 });
 
 gulp.task('purgeCSS', function () {
@@ -46,6 +67,9 @@ gulp.task('rcs', function () {
 
 gulp.task('minifyHTML', function () {
     return gulp.src('dist/pre_dist/*.html')
+        .pipe(replace('<!--###GASSCRIPT###-->', function (){
+            return gascript;
+        }))
         .pipe(htmlmin({
             collapseWhitespace: true,
             removeComments: true
@@ -74,26 +98,7 @@ gulp.task('minifyJS', function () {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('buildHTML', function () {
-    return gulp.src('./src/*.html')
-        .pipe(headerFooter.header('./src/header_footer/header.html'))
-        .pipe(headerFooter.footer('./src/header_footer/footer.html'))
-        .pipe(replace('###base_href###', function () {
-            return base_href;
-        }))
-        .pipe(replace('###async_server###', function () {
-            return async_server;
-        }))
-        .pipe(gulp.dest('./dev/'))
-});
 
-gulp.task('buildJS', function () {
-    return gulp.src('./src/js/*.js')
-        .pipe(replace('###async_server###', function () {
-            return async_server;
-        }))
-        .pipe(gulp.dest('./dev/'))
-});
 
 gulp.task('html2pug', function () {
     return gulp.src('./src/**/*.html')
@@ -127,13 +132,13 @@ gulp.task('browserSync_DIST', function () {
 
 gulp.task('watch', function () {
     gulp.watch('*.scss', gulp.series('sass'));
-    gulp.watch("src/**/*.html", gulp.series('buildHTML'));
-    gulp.watch("src/js/*.js", gulp.series('buildJS'));
-    gulp.watch("assets/*.*").on("change", browserSync.reload);
-    gulp.watch("dev/*.*").on("change", browserSync.reload);
+    gulp.watch("./src/**/*.pug", gulp.series('pugTask'));
+    gulp.watch("./src/js/*.js", gulp.series('buildJS'));
+    //gulp.watch("./assets/*.*").on("change", browserSync.reload);
+    gulp.watch("./dev/*.*").on("change", browserSync.reload);
 });
 
-gulp.task('build_dev', gulp.series('sass', 'buildHTML', 'buildJS'));
+gulp.task('build_dev', gulp.series('sass', 'pugTask', 'buildJS'));
 
 gulp.task('build_dist', gulp.series('purgeCSS', 'rcs', 'minifyHTML', 'minifyCSS', 'minifyJS'));
 

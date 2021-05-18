@@ -1,0 +1,72 @@
+extends layout/layout
+
+block title_keywords
+
+	title KIM 101EL
+
+block page_content
+	.kh-banner.py-3.py-md-5
+		h3.text-center.text-primary.mb-0 KIM 101EL
+	ul.nav.justify-content-center.py-3.py-md-5
+		li.nav-item
+			a.nav-link(href='lab-kurallari') Lab. Kuralları
+		li.nav-item
+			a.nav-link(href='lab-rules') Lab. Rules
+		li.nav-item
+			a.nav-link(href='dosya/laboratuvar-guvenlik-kitapcigi.pdf')
+				i.fa.fa-file-pdf
+				|  Güvenlik kitapçığı
+		li.nav-item
+			a.nav-link(href='dosya/lab-safety-booklet.pdf')
+				i.fa.fa-file-pdf
+				|  Safety booklet
+	.container-xxl
+		.row.justify-content-center
+			.col-sm-10.col-md-8.col-lg-7.col-xl-6
+				// deneyler
+				.card.mb-3.mb-md-4
+					.card-header.fw-bold
+						i.fa.fa-vials
+						|  Experiments
+					.card-body
+						ol
+							li Quantitative Preparation of KCl
+							li Hydrates
+							li Determination of Sodium Hypochlorite Levels in Bleach
+							li VSEPR Theory
+							li Synthesis of Soap
+							li Determination and Removal of Hardness of Water
+							li Determination of Acetic Acid in Vinegar
+							li Thermochemistry: Determination of the Heat of Reaction
+							li Re-crystallization of Benzoic Acid
+							li Colligative Properties
+				// experiment check list
+				.card.mb-3.mb-md-4
+					.card-header.fw-bold
+						i.fa.fa-check-list
+						|  Experiment check list
+					.card-body
+						p.card-text Every student must have this document so that the assigned assistants sign the experiment check list.
+						a.card-link.text-decoration-none(href='dosya/deney-kontrol-formu.doc')
+							i.fa.fa-file-word
+							|  Download
+				// çantaylar
+				.alert.alert-info.mb-3.mb-md-4
+					i.fa.fa-info-circle.fa-lg
+					|  KIM 101EL Lab. Booklet can be obtained from
+					a.alert-link(href='http://www.cantaylar.com') Çantaylar Fotokopi
+					| .
+
+				// calendar
+				h5
+					i.fa.fa-calendar
+					|  Calendar
+				.table-responsive-md
+					table.table.table-bordered.align-middle.small
+						thead.table-light
+							tr
+								th#thSes Sessions
+								th.text-center(rowspan='2') Info
+							tr#trTH
+						tbody#tbSes
+	script(src='lab.js')

@@ -1,0 +1,54 @@
+extends layout/layout
+
+block title_keywords
+
+	title KIM 101/101E
+
+block page_content
+
+	.kh-banner.py-3.py-md-5
+		h3.text-center.text-primary.mb-0 KIM 101/101E
+	.container-xxl.py-3.py-md-5.d-none#conk
+		.row.justify-content-center
+			.col-md-8
+				// ders kitabı
+				.card.mb-3.mb-md-4#dk
+					.card-header.fw-bold Ders Kitabı
+					.card-body
+						.row.align-items-center
+							.col-auto
+								i.fa.fa-book.fa-4x.p-md-4
+							.col
+								h6.card-title#text_book asdasdsd
+								p.card-text
+									strong Yardımcı kaynaklar:
+									|
+									span#sup_book
+				// program
+				.card.mb-3.mb-md-4
+					.card-header.fw-bold Program
+					.card-body.px-0
+						.table-responsive
+							table.table
+								thead
+									tr
+										th Hafta
+										th Tarih
+										th Konular
+								tbody#ptb
+				// ilgili dosyalar
+				h5 İlgili dosyalar
+				.list-group
+					a.list-group-item.list-group-item-action(href='./dosya/kim101-ders-icerigi.pdf')
+						i.fa.fa-file-pdf.fa-fw
+						| KIM 101 ders içeriği
+					a.list-group-item.list-group-item-action(href='./dosya/anorganik-bilesiklerin-adlandirilmasi.pdf')
+						i.fa.fa-file-pdf.fa-fw
+						| Anorganik bileşiklerin adlandırılması
+					a.list-group-item.list-group-item-action(href='./dosya/kim101-ornek-vize.pdf')
+						i.fa.fa-file-pdf.fa-fw
+						| Örnek ara sınav soruları
+					a.list-group-item.list-group-item-action(href='./dosya/kim101-ornek-final.pdf')
+						i.fa.fa-file-pdf.fa-fw
+						| Örnek final sınav soruları
+	script(src='ders.js')
