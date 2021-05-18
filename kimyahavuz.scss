@@ -23,7 +23,7 @@ $font-family-sans-serif: 'Inter', sans-serif;
 $transition-base: all .25s ease-in-out;
 $transition-fade: opacity .20s linear;
 
-$border-radius:               .5rem;
+$border-radius:               .625rem;
 $border-radius-sm:            .375rem;
 $border-radius-lg:            0.625rem;
 
@@ -48,6 +48,9 @@ $card-cap-padding-y: 0.8125rem;
 
 //nav
 .kh-nav{
+  @extend .justify-content-sm-start;
+  @extend .justify-content-between;
+  @extend .w-100;
   .nav-link{
     @extend .px-2;
     @extend .px-sm-4;

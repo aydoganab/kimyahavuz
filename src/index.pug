@@ -17,14 +17,18 @@ block page_content
 		.container-xxl.py-3.py-md-5.position-relative(style='z-index: 2')
 			.row
 				.col-lg-5.text-center.text-lg-start.align-self-center
-					h1.display-5.pt-2.pt-lg-0.pb-3.pb-md-0.text-primary İTÜ Kimya Havuz Dersleri
+					h1.display-5.pt-2.pt-lg-0.pb-3.pb-lg-0.text-primary İTÜ Kimya Havuz Dersleri
 				.col-lg-7
 					.rounded-3.shadow.p-3.p-md-5.bg-white
 						.row.align-items-center
+
+							//açıklama metni
 							.col-md-5.d-none.d-md-block
 								h3 Sonuçlar
 								p.lead.text-muted Ödev, sınav ve deney notlarınızı sorgulayın. Deney programınızı görüntüleyin.
-							.col-md-7
+
+							//sonuç sorgulama formu
+							.col-md-7#yeswy
 								form.validate.d-none#sform(novalidate)
 									.mb-3
 										label.form-label.fw-bold Ders
@@ -41,6 +45,12 @@ block page_content
 										input.form-control#stdno(type='number', min='0', max='999999999', required, step='1', name='stdno', placeholder='9 haneli öğrenci numaranız', style='letter-spacing: 1px')
 										.invalid-feedback 9 haneli öğrenci numranızı giriniz
 									button.btn.btn-outline-primary(type='submit') Sorgula
+
+							//aktif sonuç ilanı yok
+							.col-md-7.d-none#nowy
+								.alert.alert-info.text-center
+									i.fa.fa-info-circle.me-2
+									| Sonuçlar henüz ilan edilmedi.
 
 		.py-4.py-md-5
 

@@ -139,9 +139,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('build_dev', gulp.series('sass', 'pugTask', 'buildJS'));
-
-gulp.task('build_dist', gulp.series('purgeCSS', 'rcs', 'minifyHTML', 'minifyCSS', 'minifyJS'));
-
 gulp.task('dev_test', gulp.parallel('browserSync_DEV', 'watch'));
 
+gulp.task('build_dist', gulp.series('purgeCSS', 'rcs', 'minifyHTML', 'minifyCSS', 'minifyJS'));
 gulp.task('dist_test', gulp.parallel('browserSync_DIST'));

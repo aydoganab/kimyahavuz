@@ -127,13 +127,19 @@ xhr.onload = function () {
     }
 
     //kim101el
-    if (r.kim101el_web_yayin == 1) {
+    if (r.kim101el_web_yayin > 0) {
         let option = document.createElement("option");
         option.setAttribute("value", "kim101el");
         option.append(document.createTextNode("KIM 101EL"));
         ders.append(option);
 
         sform.classList.remove("d-none");
+    }
+
+    //sınav sonuç ilanı yok
+    if (r.kim101_donemler.length == 0 && r.kim101el_web_yayin == 0){
+        document.getElementById("yeswy").classList.add("d-none");
+        document.getElementById("nowy").classList.remove("d-none");
     }
 
 };
