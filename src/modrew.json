@@ -4,5 +4,7 @@
   "^/kim101el-sonuc/(.*)$ ./kim101el-sonuc.html [L]",
   "kim101-101e kim101-101e.html [L]",
   "kim101el kim101el.html [L]",
-  "duyurular duyurular.html [L]"
+  "duyurular duyurular.html [L]",
+  "lab-kurallari lab-kurallari.html [L]",
+  "lab-rules lab-rules.html [L]"
 ]

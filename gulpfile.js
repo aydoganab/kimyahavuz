@@ -1,4 +1,5 @@
 let gulp = require('gulp');
+let pug = require('gulp-pug');
 let sass = require('gulp-sass');
 let autoprefixer = require('gulp-autoprefixer');
 let cleanCss = require('gulp-clean-css');
@@ -12,12 +13,13 @@ let replace = require('gulp-replace');
 let terser = require('gulp-terser');
 let browserSync = require('browser-sync');
 let modRewrite = require('connect-modrewrite');
+let htmltopug = require('gulp-html2pug');
 
 let base_href = "https://kimyahavuz.itu.edu.tr/";
-//let base_href = "http://localhost:3000/";
+base_href = "http://localhost:3000/";
 
 let async_server = "https://otm.kimya.itu.edu.tr";
-//let async_server = "http://160.75.18.250/otmnew";
+async_server = "http://160.75.18.250/otmnew";
 
 
 gulp.task('sass', function () {
@@ -91,6 +93,12 @@ gulp.task('buildJS', function () {
             return async_server;
         }))
         .pipe(gulp.dest('./dev/'))
+});
+
+gulp.task('html2pug', function () {
+    return gulp.src('./src/**/*.html')
+        .pipe(htmltopug())
+        .pipe(gulp.dest('src/src_pug'));
 });
 
 let modrew = require("./src/modrew");
