@@ -8,36 +8,74 @@ block page_content
 
 	.kh-banner.py-3.py-md-5
 		h3.text-center.text-primary.mb-0 KIM 101/101E
-	.container-xxl.py-3.py-md-5.d-none#conk
+	.container-xxl.py-3.py-md-5
 		.row.justify-content-center
 			.col-md-8
 				// ders kitabı
-				.card.mb-3.mb-md-4#dk
-					.card-header.fw-bold Ders Kitabı
+				.card.mb-3.mb-md-4
+					.card-header.fw-bold Ders Kitabı/Text Book
 					.card-body
 						.row.align-items-center
 							.col-auto
 								i.fa.fa-book.fa-4x.p-md-4
 							.col
-								h6.card-title#text_book asdasdsd
+								h6.card-title <b>General Chemistry</b><br>R. H. Petrucci, F. G. Herring, J. D. Madura, C Bissonnette, Pearson Canada, Inc.<br>2017, Eleventh Ed.
 								p.card-text
 									strong Yardımcı kaynaklar:
 									|
-									span#sup_book
+									span.ms-1 Tüm Genel Kimya Kitapları
+								p.card-text
+									strong Supplementary books:
+									|
+									span.ms-1 All general chemistry text books
 				// program
-				.card.mb-3.mb-md-4
-					.card-header.fw-bold Program
-					.card-body.px-0
-						.table-responsive
-							table.table
-								thead
+				h5 Konular / Topics
+				.table-responsive.mb-3.mb-md-4
+							table.table.table-bordered
+								tbody
 									tr
-										th Hafta
-										th Tarih
-										th Konular
-								tbody#ptb
+										td Maddenin Özellikleri, Atomlar ve Atom Kuramı
+										td Matter and Its Properties, Atoms and Atomic Theory
+									tr
+										td Atomun Elektronik Yapısı, Periyodik Tablo
+										td Electrons in Atoms, Periodic Table
+									tr
+										td Kimyasal Bileşikler, Kimyasal Tepkimeler
+										td Chemical Compounds, Chemical Reactions
+									tr
+										td Sulu Çözeltilerde Tepkimeler
+										td Reactions in Aqueous Solutions
+									tr
+										td Gazlar
+										td Gases
+									tr
+										td Termokimya
+										td Termochemistry
+									tr
+										td Kimyasal Bağlar-I
+										td Chemical Bonding-I
+									tr
+										td Kimyasal Bağlar-II
+										td Chemical Bonding-II
+									tr
+										td Sıvılar, Katılar ve Moleküllerarası kuvvetler
+										td Liquids, Solids and Intermolecular Forces
+									tr
+										td Çözeltiler ve Fiziksel Özellikleri
+										td Solutions and Their Physical Properties
+									tr
+										td Kimyasal Denge
+										td Chemical Equilibrium
+									tr
+										td Asitler ve Bazlar
+										td Acids and Bases
+									tr
+										td İstemli Değişme:Entropi ve Serbest Enerji
+										td Spontaneous Change: Entropy and Gibbs Energy
+
+
 				// ilgili dosyalar
-				h5 İlgili dosyalar
+				h5 İlgili dosyalar / Related Files
 				.list-group
 					a.list-group-item.list-group-item-action(href='./dosya/kim101-ders-icerigi.pdf')
 						i.fa.fa-file-pdf.fa-fw
@@ -51,4 +89,3 @@ block page_content
 					a.list-group-item.list-group-item-action(href='./dosya/kim101-ornek-final.pdf')
 						i.fa.fa-file-pdf.fa-fw
 						| Örnek final sınav soruları
-	script(src='ders.js')
