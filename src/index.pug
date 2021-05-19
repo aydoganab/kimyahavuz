@@ -28,8 +28,8 @@ block page_content
 								p.lead.text-muted Ödev, sınav ve deney notlarınızı sorgulayın. Deney programınızı görüntüleyin.
 
 							//sonuç sorgulama formu
-							.col-md-7#yeswy
-								form.validate.d-none#sform(novalidate)
+							.col-md-7.d-none#yeswy
+								form.validate#sform(novalidate)
 									.mb-3
 										label.form-label.fw-bold Ders
 										select#ders.form-select.w-auto(name='ders', required)
@@ -47,10 +47,9 @@ block page_content
 									button.btn.btn-outline-primary(type='submit') Sorgula
 
 							//aktif sonuç ilanı yok
-							.col-md-7.d-none#nowy
-								.alert.alert-info.text-center
-									i.fa.fa-info-circle.me-2
-									| Sonuçlar henüz ilan edilmedi.
+							#nowy.col-md-7.text-center.fs-5
+								i.fa.fa-info-circle.me-2
+								| Sonuçlar henüz ilan edilmedi.
 
 		.py-4.py-md-5
 

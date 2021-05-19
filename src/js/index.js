@@ -47,101 +47,103 @@ stdno.onkeyup = function () {
 
 //guncel duyurular
 let xhr = new XMLHttpRequest();
+xhr.open("GET", "###async_server###/service/guncel-duyurular", true);
+xhr.send();
 xhr.onload = function () {
-    let r = JSON.parse(xhr.responseText);
 
-    //duyuru işlemleri
-    let data = r.duyuru_data;
-    if (data.length > 0) {
-        //set bell
+    if (xhr.status === 200) {
 
-        let liyds = document.getElementById("li-yds");
-        liyds.setAttribute("title", data.length + " güncel duyuru");
-        liyds.classList.remove("d-none");
-        document.getElementById("yds").append(document.createTextNode(data.length));
+        let r = JSON.parse(xhr.responseText);
 
-        //populate
-        let yds = document.getElementById("yds");
-        let ryds = document.getElementById("ryds");
 
-        for (let i = 0; i < data.length; i++) {
+        //duyuru işlemleri
+        let data = r.duyuru_data;
+        if (data.length > 0) {
+            //set bell
 
-            let duyuru = data[i];
+            let liyds = document.getElementById("li-yds");
+            liyds.setAttribute("title", data.length + " güncel duyuru");
+            liyds.classList.remove("d-none");
+            document.getElementById("yds").append(document.createTextNode(data.length));
 
-            let colDuyuru = document.createElement("div");
-            colDuyuru.className = "col-duyuru";
+            //populate
+            let yds = document.getElementById("yds");
+            let ryds = document.getElementById("ryds");
 
-            let duyuruItem = document.createElement("div");
-            duyuruItem.className = "duyuru-item";
-            let spanDuyuru = document.createElement("span");
-            spanDuyuru.className = "span-duyuru";
-            spanDuyuru.append(document.createTextNode(duyuru.ilgi));
+            for (let i = 0; i < data.length; i++) {
 
-            let duyuruBody = document.createElement("div");
-            duyuruBody.className = "duyuru-body";
-            let duyuruP = document.createElement("p");
-            duyuruP.className = "duyuru-p";
-            duyuruP.append(document.createTextNode(duyuru.baslik));
-            let duyuruDate = document.createElement("small");
-            duyuruDate.className = "duyuru-date";
-            duyuruDate.append(document.createTextNode(duyuru.sd));
-            duyuruBody.append(duyuruP);
-            duyuruBody.append(duyuruDate);
+                let duyuru = data[i];
 
-            let duyuruA = document.createElement("a");
-            duyuruA.className = "duyuru-a";
-            duyuruA.setAttribute("href", duyuru.url);
+                let colDuyuru = document.createElement("div");
+                colDuyuru.className = "col-duyuru";
 
-            duyuruItem.append(spanDuyuru);
-            duyuruItem.append(duyuruBody);
-            duyuruItem.append(duyuruA);
+                let duyuruItem = document.createElement("div");
+                duyuruItem.className = "duyuru-item";
+                let spanDuyuru = document.createElement("span");
+                spanDuyuru.className = "span-duyuru";
+                spanDuyuru.append(document.createTextNode(duyuru.ilgi));
 
-            colDuyuru.append(duyuruItem);
+                let duyuruBody = document.createElement("div");
+                duyuruBody.className = "duyuru-body";
+                let duyuruP = document.createElement("p");
+                duyuruP.className = "duyuru-p";
+                duyuruP.append(document.createTextNode(duyuru.baslik));
+                let duyuruDate = document.createElement("small");
+                duyuruDate.className = "duyuru-date";
+                duyuruDate.append(document.createTextNode(duyuru.sd));
+                duyuruBody.append(duyuruP);
+                duyuruBody.append(duyuruDate);
 
-            ryds.append(colDuyuru);
+                let duyuruA = document.createElement("a");
+                duyuruA.className = "duyuru-a";
+                duyuruA.setAttribute("href", duyuru.url);
 
-            document.getElementById("guncel-duyurular").classList.remove("d-none");
+                duyuruItem.append(spanDuyuru);
+                duyuruItem.append(duyuruBody);
+                duyuruItem.append(duyuruA);
 
+                colDuyuru.append(duyuruItem);
+
+                ryds.append(colDuyuru);
+
+                document.getElementById("guncel-duyurular").classList.remove("d-none");
+
+            }
         }
-    }
 
-    //kim101
-    if (r.kim101_donemler.length > 0) {
+        //kim101
+        if (r.kim101_donemler.length > 0) {
 
-        //ders option
-        let option = document.createElement("option");
-        option.setAttribute("value", "kim101");
-        option.append(document.createTextNode("KIM 101/101E"));
-        ders.append(option);
-
-        //donemler
-        for (let k = 0; k < r.kim101_donemler.length; k++) {
-            let donem_data = r.kim101_donemler[k];
+            //ders option
             let option = document.createElement("option");
-            option.setAttribute("value", donem_data.donem);
-            option.append(document.createTextNode(donem_data.donem_formatted_tr));
-            donem.append(option);
+            option.setAttribute("value", "kim101");
+            option.append(document.createTextNode("KIM 101/101E"));
+            ders.append(option);
+
+            //donemler
+            for (let k = 0; k < r.kim101_donemler.length; k++) {
+                let donem_data = r.kim101_donemler[k];
+                let option = document.createElement("option");
+                option.setAttribute("value", donem_data.donem);
+                option.append(document.createTextNode(donem_data.donem_formatted_tr));
+                donem.append(option);
+            }
         }
 
-        sform.classList.remove("d-none");
-    }
+        //kim101el
+        if (r.kim101el_web_yayin > 0) {
+            let option = document.createElement("option");
+            option.setAttribute("value", "kim101el");
+            option.append(document.createTextNode("KIM 101EL"));
+            ders.append(option);
+        }
 
-    //kim101el
-    if (r.kim101el_web_yayin > 0) {
-        let option = document.createElement("option");
-        option.setAttribute("value", "kim101el");
-        option.append(document.createTextNode("KIM 101EL"));
-        ders.append(option);
+        //sınav sonuç ilanı yok
+        if (r.kim101_donemler.length > 0 || r.kim101el_web_yayin > 0) {
+            document.getElementById("yeswy").classList.remove("d-none");
+            document.getElementById("nowy").classList.add("d-none");
+        }
 
-        sform.classList.remove("d-none");
-    }
-
-    //sınav sonuç ilanı yok
-    if (r.kim101_donemler.length == 0 && r.kim101el_web_yayin == 0){
-        document.getElementById("yeswy").classList.add("d-none");
-        document.getElementById("nowy").classList.remove("d-none");
     }
 
 };
-xhr.open("GET", "###async_server###/service/guncel-duyurular", true);
-xhr.send();
