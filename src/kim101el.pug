@@ -23,6 +23,18 @@ block page_content
 	.container-xxl
 		.row.justify-content-center
 			.col-sm-10.col-md-8.col-lg-7.col-xl-6
+
+				//koordinatör
+				#kordinator.card.mb-3.mb-md-4.shadow-sm.d-none
+					.card-header.fw-bold
+						span#kordonem.me-1
+						| dönemi koordinatörü
+					#korcb.card-body.d-flex.align-items-center.py-3.py-md-4
+						img#korimg.rounded-circle.me-2(style='max-height:30px')
+						span#korname
+						a#koremail.ms-auto(href="")
+							i.fa.fa-envelope-o.fa-lg
+
 				// deneyler
 				.card.mb-3.mb-md-4
 					.card-header.fw-bold

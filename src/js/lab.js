@@ -27,4 +27,13 @@ xhr.onload = function () {
         tbSes.append(tr);
     });
 
+    if (Object.keys(responseObject.kordinator).length > 0) {
+        document.getElementById("kordonem").innerHTML=responseObject.donem_tr
+        document.getElementById("korimg").setAttribute("src", "###async_server###/userpics/" + responseObject.kordinator.resim);
+        document.getElementById("korname").innerHTML=responseObject.kordinator.name;
+        document.getElementById("koremail").setAttribute("href","mailto:"+responseObject.kordinator.eposta);
+
+        document.getElementById("kordinator").classList.remove("d-none");
+    }
+
 };
