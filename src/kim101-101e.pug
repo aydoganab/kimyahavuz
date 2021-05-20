@@ -11,6 +11,18 @@ block page_content
 	.container-xxl.py-3.py-md-5
 		.row.justify-content-center
 			.col-md-8
+
+				//koordinatör
+				#kordinator.card.mb-3.mb-md-4.shadow-sm.d-none
+					.card-header.fw-bold
+						span#kordonem.me-1
+						| dönemi kordinatörü
+					#korcb.card-body.d-flex.align-items-center.py-3.py-md-4
+						img#korimg.rounded-circle.me-2(style='max-height:30px')
+						span#korname Abdullah
+						a#koremail.ms-auto(href="")
+							i.fa.fa-envelope-o.fa-lg
+
 				// ders kitabı
 				.card.mb-3.mb-md-4
 					.card-header.fw-bold Ders Kitabı/Text Book
@@ -89,3 +101,5 @@ block page_content
 					a.list-group-item.list-group-item-action(href='./dosya/kim101-ornek-final.pdf')
 						i.fa.fa-file-pdf.fa-fw
 						| Örnek final sınav soruları
+
+	script(src='ders.js')

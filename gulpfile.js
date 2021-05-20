@@ -16,10 +16,10 @@ let modRewrite = require('connect-modrewrite');
 let htmltopug = require('gulp-html2pug');
 
 let base_href = "https://kimyahavuz.itu.edu.tr/";
-base_href = "http://localhost:3000/";
-
 let async_server = "https://otm.kimya.itu.edu.tr";
-async_server = "http://160.75.18.250/otmnew";
+
+/*base_href = "http://localhost:3000/";
+async_server = "http://160.75.18.250/otmnew";*/
 
 let gascript = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-FTRXZNV7C4"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-FTRXZNV7C4");</script>';
 
