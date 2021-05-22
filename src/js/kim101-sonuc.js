@@ -78,7 +78,7 @@ xhr.onload = function () {
                         btn.setAttribute("type", "button");
                         btn.setAttribute("data-s", sitem.turu);
                         btn.setAttribute("data-t", sitem.sinav);
-                        btn.classList.add("btn", "btn-sm", "btn-outline-secondary", "btn-odev-detay");
+                        btn.classList.add("btn", "btn-sm", "btn-outline-dark", "rounded-pill", "btn-odev-detay");
                         btn.append(document.createTextNode("Detaylar"));
                         sdetay.append(btn);
                     }
