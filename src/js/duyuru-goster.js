@@ -11,6 +11,13 @@ xhr.onload = function () {
         document.getElementById("dm").innerHTML = r.dm;
         document.getElementById("do").innerHTML = r.ekleyen;
 
+        //make tables responsive in dm
+        let dm = document.getElementById("dm");
+        let tables = dm.getElementsByTagName("table");
+        for (let i = 0; i < tables.length; i++) {
+            tables[i].classList.add("duyuru-table", "table-responsive");
+        }
+
         //ekler
         if (r.ekler.length > 0) {
             let de = document.getElementById("de");

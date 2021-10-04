@@ -211,6 +211,10 @@ $table-hover-bg: tint-color($gray, 97%);
   @extend .stretched-link;
 }
 
+.duyuru-table{
+  @extend .table;
+}
+
 
 //FA
 $fa-font-path: "./fonts";
