@@ -15,7 +15,13 @@ xhr.onload = function () {
         let dm = document.getElementById("dm");
         let tables = dm.getElementsByTagName("table");
         for (let i = 0; i < tables.length; i++) {
-            tables[i].classList.add("duyuru-table", "table-responsive");
+            tables[i].classList.add("duyuru-table", "table-responsive", "table-bordered");
+        }
+
+        //remove table class from figure tags
+        let figs = document.getElementsByTagName("figure");
+        for (let i = 0; i < figs.length; i++) {
+            figs[i].classList.remove("table");
         }
 
         //ekler
