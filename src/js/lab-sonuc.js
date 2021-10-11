@@ -31,6 +31,7 @@ xhr.onload = function () {
         kh_getElement("liLab").innerHTML = responseObject.std.lab;
         kh_getElement("liDay").innerHTML = responseObject.std.gun;
         kh_getElement("liHours").innerHTML = responseObject.std.saat;
+        kh_getElement("liGroup").innerHTML = responseObject.std.grup;
 
         //experiment and grades
         Array.from(responseObject.cal).forEach(calItem => {
