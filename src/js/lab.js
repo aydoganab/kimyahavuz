@@ -37,3 +37,17 @@ xhr.onload = function () {
     }
 
 };
+
+//kim101el deneylerini getir
+let xhr2 = new XMLHttpRequest();
+xhr2.open("GET", "###async_server###/service/get-kim101el-deneyler", true);
+xhr2.send();
+xhr2.onload = function () {
+    let responseObject = JSON.parse(xhr2.responseText);
+    let ol = document.getElementById("deneyler");
+    Array.from(responseObject).forEach(deney => {
+        let li = document.createElement("li");
+        li.textContent = deney.da;
+        ol.append(li);
+    });
+}
