@@ -62,7 +62,7 @@ xhr.onload = function () {
             //set bell
 
             let liyds = document.getElementById("li-yds");
-            liyds.setAttribute("title", data.length + " güncel duyuru");
+            liyds.setAttribute("title", data.length + " current announcement(s)");
             liyds.classList.remove("d-none");
             document.getElementById("yds").append(document.createTextNode(data.length));
 
