@@ -7,7 +7,7 @@ xhr.onload = function () {
         let responseObject = JSON.parse(xhr.response);
 
         if (Object.keys(responseObject.kordinator).length > 0) {
-            document.getElementById("kordonem").innerHTML = responseObject.donem_tr
+            document.getElementById("kordonem").innerHTML = responseObject.donem_en
             document.getElementById("korimg").setAttribute("src", "###async_server###/userpics/" + responseObject.kordinator.resim);
             document.getElementById("korname").innerHTML = responseObject.kordinator.name;
             document.getElementById("koremail").setAttribute("href", "mailto:" + responseObject.kordinator.eposta);

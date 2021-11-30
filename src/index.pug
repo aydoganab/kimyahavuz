@@ -2,7 +2,7 @@ extends layout/layout
 
 block title_keywords
 
-	title İTÜ Kimya Havuz Dersleri
+	title İTÜ Chemistry Common Courses
 	meta(name="keywords", content="KIM 101, KIM 101E, KIM 101EL, İTÜ Kimya Havuz Dersleri, İTÜ Kimya, Kimya")
 	meta(name="description", content="İTÜ Kimya Bölümü tarafından verilmekte olan KIM 101/101E ve KIM 101EL havuz derslerinin genele bilgilendirmeleri ve sonuçların duyurulması bu site üzerinden yapılmaktadır.")
 
@@ -19,44 +19,44 @@ block page_content
 		.container-xxl.py-3.py-md-5.position-relative(style='z-index: 2')
 			.row
 				.col-lg-5.text-center.text-lg-start.align-self-center
-					h1.display-5.pt-2.pt-lg-0.pb-3.pb-lg-0.text-primary İTÜ Kimya Havuz Dersleri
+					h1.display-5.pt-2.pt-lg-0.pb-3.pb-lg-0.text-primary ITU Chemistry Common Courses
 				.col-lg-7
 					.rounded-3.shadow.p-3.p-md-5.bg-white
 						.row.align-items-center
 
 							//açıklama metni
 							.col-md-5.d-none.d-md-block
-								h3 Sonuçlar
-								p.lead.text-muted Ödev, sınav ve deney notlarınızı sorgulayın. Deney programınızı görüntüleyin.
+								h3 Results
+								p.lead.text-muted Learn your homework, exam and experiment results. See your experiment schedule.
 
 							//sonuç sorgulama formu
 							.col-md-7.d-none#yeswy
 								form.validate#sform(novalidate)
 									.mb-3
-										label.form-label.fw-bold Ders
+										label.form-label.fw-bold Corse
 										select#ders.form-select.w-auto(name='ders', required)
-											option(value) Seçiniz
-										.invalid-feedback Ders seçiniz
+											option(value) Select
+										.invalid-feedback Select course
 									.mb-3.d-none#div-donem(style='transition: all 0.5s ease-in;')
-										label.form-label.fw-bold Dönem
+										label.form-label.fw-bold Semester
 										select#donem.form-select.w-auto(name='donem').
 
 
 									.mb-3
-										label.form-label.fw-bold Öğrenci no
-										input.form-control#stdno(type='number', min='0', max='999999999', required, step='1', name='stdno', placeholder='9 haneli öğrenci numaranız', style='letter-spacing: 1px')
-										.invalid-feedback 9 haneli öğrenci numranızı giriniz
-									button.btn.btn-outline-primary(type='submit') Sorgula
+										label.form-label.fw-bold Student number
+										input.form-control#stdno(type='number', min='0', max='999999999', required, step='1', name='stdno', placeholder='9 digit student number', style='letter-spacing: 1px')
+										.invalid-feedback Enter your 9 digit student number
+									button.btn.btn-outline-primary(type='submit') Submit
 
 							//aktif sonuç ilanı yok
 							#nowy.col-md-7.text-center.fs-5
 								i.fa.fa-info-circle.me-2
-								| Sonuçlar henüz ilan edilmedi.
+								| Results have not been announced yet.
 
 		.py-4.py-md-5
 
 	.container-xxl.d-none#guncel-duyurular
-		h4.text-center.mb-3 Güncel Duyurular
+		h4.text-center.mb-3 Current Announcements
 		.row-duyuru#ryds
 			// SUTRUCTURE
 			//

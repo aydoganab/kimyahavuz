@@ -134,7 +134,7 @@ gulp.task('watch', function () {
     gulp.watch('*.scss', gulp.series('sass'));
     gulp.watch("./src/**/*.pug", gulp.series('pugTask'));
     gulp.watch("./src/js/*.js", gulp.series('buildJS'));
-    //gulp.watch("./assets/*.*").on("change", browserSync.reload);
+    gulp.watch("./assets/*.*").on("change", browserSync.reload);
     gulp.watch("./dev/*.*").on("change", browserSync.reload);
 });
 

@@ -2,12 +2,12 @@ extends layout/layout
 
 block title_keywords
 
-	title KIM 101/101E Sonuçları
-	meta(name="keywords", content="KIM 101/101E sonuçları")
+	title KIM 101/101E Results
+	meta(name="keywords", content="KIM 101/101E results")
 
 block page_content
 	.kh-banner.py-3.py-md-5
-		h3.text-center.text-primary.mb-0 KIM 101/101E SONUÇLARI
+		h3.text-center.text-primary.mb-0 KIM 101/101E RESULTS
 	.container-xxl.pt-3.pt-md-5
 		.row.justify-content-center
 			.col-xxl-6.col-xl-7.col-lg-8.col-md-9.col-sm-10
@@ -15,7 +15,7 @@ block page_content
 				.card.mb-3.mb-md-4.d-none#stdInf
 					.card-header.fw-bold.text-dark
 						i.fa.fa-id-card
-						span Öğrenci bilgileri
+						span Student information
 
 					.card-body
 						table.table.table-borderless.align-middle.mb-0
@@ -24,65 +24,65 @@ block page_content
 									th(scope='col') No
 									td#sno
 								tr
-									th(scope='col') Ad Soyad
+									th(scope='col') Name
 									td#sname
 								tr
-									th(scope='col') Dil
+									th(scope='col') Course
 									td#sdil
 								tr
 									th(scope='col') CRN
 									td#scrn
 								tr
-									th(scope='col') Öğretim üyesi
+									th(scope='col') Faculty
 									td
 										.d-flex.align-items-center#souy.
 
 
 				// sınav yeri bilgileri
 				.card.mb-3.mb-md-4.d-none#loc
-					.card-header.fw-bold Sınav yeri bilgileri
+					.card-header.fw-bold Exam place info
 					.card-body
 						table.table.table-borderless.align-middle.mb-0
 							tbody
 								tr
-									th(scope='col') Dönem
+									th(scope='col') Semester
 									td#locdonem
 								tr
-									th(scope='col') Sınav yeri
+									th(scope='col') Exam place
 									td#locsy
 								tr
-									th(scope='col') Grup no
+									th(scope='col') Group no
 									td#locgr
 								tr
-									th(scope='col') Sıra no
+									th(scope='col') List no
 									td#locsn
 					.card-footer.bg-transparent.text-end.border-top-0
-						a.card-link.text-decoration-none(href='https://www.sis.itu.edu.tr/TR/obs-hakkinda/lisans-program-kodlari.php') Bina kodları
+						a.card-link.text-decoration-none(href='https://www.sis.itu.edu.tr/TR/obs-hakkinda/lisans-program-kodlari.php') Building codes
 				// ödev ve sınav notları
 				.card.mb-3.mb-md-4.d-none#osnCon
-					.card-header.fw-bold Ödev ve sınav notları
+					.card-header.fw-bold Homework and exam results
 					.card-body.pb-0
 						.table-responsive
 							table.table.table-hover.align-middle.mb-1
 								thead
 									tr
 										th
-										th Not
-										th S.O.
+										th Grade
+										th EA
 										th
 								tbody#tbnot
 					.card-footer.bg-transparent.border-top-0.text-muted.small
 						b G:
-						|  Sınava girmedi, ödevi teslim etmedi,
-						b S.O.:
-						|  Sınav ortalaması.
+						|&nbsp;Not attended,&nbsp;
+						b EA:
+						|&nbsp;Exam average.
 				// genel ortalama ve notlar
 				.card.mb-3.mb-md-4.d-none#gort
-					.card-header.fw-bold Genel ortalama ve notlar
+					.card-header.fw-bold General average and grade
 					.card-body#cbgort
 				// harfli not aralıkları
 				.card.mb-3.mb-md-4.d-none#harfli
-					.card-header.fw-bold Harfli not aralıkları
+					.card-header.fw-bold Grade limits
 					.card-body.table-responsive.mb-0
 						table.table.table-borderless
 							tbody#tbharfli
@@ -91,18 +91,17 @@ block page_content
 					.card
 						.card-header.fw-bold
 							span#sdTitle
-							|  Detayları
+							|  Details
 						.card-body
 							table.table.table-hover
 								thead
 									tr
-										th Soru No
-										th Not
+										th Question
+										th Grade
 								tbody#tbDetay
 		.bg-light.p-3.p-md-5.rounded.d-none#noStd
-			h1.display-6 Öğrenci bulunamadı.
-			p.lead Girdiğiniz öğrenci numarasına karşılık gelen bir öğrenci sistemde bulunamadı. Lütfen öğrenci numarasının doğru olduğundan emin olunuz.
+			h1.display-6 Student was not found.
+			p.lead A student corresponding to the number that you provided could not be found in our system. Please be sure that you entered your student number correctly.
 		.bg-light.p-3.p-md-5.rounded.d-none#noDonem
-			h1.display-6 Dönem sınav sonuçları ilan edilmedi.
-			p.lead Sorgulama yapmak istediğiniz döneme ait aktif sonuç ilanı bulunmamaktadır. Lütfen daha sonra tekrar deneyiniz.
+			h1.display-6 Semester exam results have not been announced yet.
 	script(src='kim101-sonuc.js')
