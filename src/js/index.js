@@ -128,6 +128,7 @@ xhr.onload = function () {
                 option.append(document.createTextNode(donem_data.donem_formatted_tr));
                 donem.append(option);
             }
+
         }
 
         //kim101el
@@ -140,8 +141,12 @@ xhr.onload = function () {
 
         //sınav sonuç ilanı yok
         if (r.kim101_donemler.length > 0 || r.kim101el_web_yayin > 0) {
-            document.getElementById("yeswy").classList.remove("d-none");
-            document.getElementById("nowy").classList.add("d-none");
+            document.getElementById("ph").classList.add("d-none");
+            document.getElementById("sform").classList.remove("d-none");
+
+        }else {
+            document.getElementById("ph").classList.add("d-none");
+            document.getElementById("nowy").classList.remove("d-none");
         }
 
     }

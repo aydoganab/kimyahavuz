@@ -30,9 +30,12 @@ block page_content
 								p.lead.text-muted Learn your homework, exam and experiment results. See your experiment schedule.
 
 							//sonuç sorgulama formu
-							.col-md-7.d-none#yeswy
+							.col-md-7#yeswy
+
+								h3.d-md-none Results
+
 								//placeholder
-								.placeholder-glow
+								.placeholder-glow#ph
 									.col-auto
 										label.form-label.placeholder.rounded.fw-bold Course
 									.col-6.mb-3
@@ -61,10 +64,10 @@ block page_content
 										.invalid-feedback Enter your 9 digit student number
 									button.btn.btn-outline-primary(type='submit') Submit
 
-							//aktif sonuç ilanı yok
-							#nowy.col-md-7.text-center.fs-5
-								i.fa.fa-info-circle.me-2
-								| Results have not been announced yet.
+								//aktif sonuç ilanı yok
+								#nowy.text-center.fs-5.d-none
+									i.fa.fa-info-circle.me-2
+									| Results have not been announced yet.
 
 		.py-4.py-md-5
 
