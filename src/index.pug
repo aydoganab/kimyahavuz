@@ -31,9 +31,22 @@ block page_content
 
 							//sonuç sorgulama formu
 							.col-md-7.d-none#yeswy
-								form.validate#sform(novalidate)
+								//placeholder
+								.placeholder-glow
+									.col-auto
+										label.form-label.placeholder.rounded.fw-bold Course
+									.col-6.mb-3
+										.form-control.placeholder.py-3
+									.col-auto
+										label.form-label.fw-bold.rounded.placeholder Student number
+									.col-12.mb-3
+										.form-control.placeholder.py-3
+									.a.btn.btn-primary.placeholder.disabled.col-3(href='#')
+
+
+								form.validate.d-none#sform(novalidate)
 									.mb-3
-										label.form-label.fw-bold Corse
+										label.form-label.fw-bold Course
 										select#ders.form-select.w-auto(name='ders', required)
 											option(value) Select
 										.invalid-feedback Select course
