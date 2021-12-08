@@ -220,6 +220,7 @@ $table-hover-bg: tint-color($gray, 97%);
 //FA
 $fa-font-path: "./fonts";
 $fa-font-size-base: 1rem;
+$fa-fw-width: calc(20em / 16);
 //@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 //@import "node_modules/@fortawesome/fontawesome-free/scss/regular";
 //@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
