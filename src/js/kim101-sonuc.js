@@ -190,6 +190,24 @@ xhr.onload = function () {
 
                                 }
 
+                                //populate optik form
+                                if (responseObject.optik.length > 0){
+                                    let tfoot = document.createElement("tfoot");
+                                    let tftr = document.createElement("tr");
+                                    let tftd = document.createElement("td");
+                                    tftd.colSpan = 2;
+                                    for (let oi=0; oi < responseObject.optik.length; oi++){
+                                        let aoptik = document.createElement("a");
+                                        aoptik.href = responseObject.optik[0];
+                                        aoptik.classList.add("card-link","text-decoration-none","small");
+                                        aoptik.innerHTML = "See your answer sheet";
+                                        tftd.append(aoptik);
+                                    }
+                                    tftr.append(tftd);
+                                    tfoot.append(tftr);
+                                    document.getElementById("tdetay").append(tfoot);
+                                }
+
                                 document.getElementById("sinav-detay").classList.remove("d-none");
 
                                 //scroll
