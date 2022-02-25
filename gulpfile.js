@@ -1,25 +1,25 @@
 let gulp = require('gulp');
 let pug = require('gulp-pug');
-let sass = require('gulp-sass');
+let sass = require('gulp-sass')(require('sass'));
 let autoprefixer = require('gulp-autoprefixer');
 let cleanCss = require('gulp-clean-css');
 let purgecss = require('gulp-purgecss');
 let rcs = require('gulp-rcs');
 let cachebust = require('gulp-cache-bust');
 let rename = require('gulp-rename');
-let headerFooter = require('gulp-headerfooter');
+//let headerFooter = require('gulp-headerfooter');
 let htmlmin = require('gulp-htmlmin');
 let replace = require('gulp-replace');
 let terser = require('gulp-terser');
 let browserSync = require('browser-sync');
 let modRewrite = require('connect-modrewrite');
-let htmltopug = require('gulp-html2pug');
+//let htmltopug = require('gulp-html2pug');
 
 let base_href = "https://kimyahavuz.itu.edu.tr/";
 let async_server = "https://otm.kimya.itu.edu.tr";
 
-//base_href = "http://localhost:3000/";
-//async_server = "http://160.75.18.250/otmnew";
+base_href = "http://localhost:3000/";
+async_server = "http://160.75.18.250/otmnew";
 
 let gascript = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-FTRXZNV7C4"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-FTRXZNV7C4");</script>';
 
