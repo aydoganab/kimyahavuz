@@ -75,6 +75,7 @@ gulp.task('minifyHTML', function () {
             removeComments: true
         }))
         .pipe(cachebust())
+        //.pipe(cachebust({type:'timestamp'}))
         .pipe(gulp.dest('dist'));
 });
 
