@@ -220,6 +220,7 @@ $table-hover-bg: tint-color($gray, 97%);
 //FA
 $fa-font-path: "./fonts";
 $fa-font-size-base: 1rem;
+$fa-display: 'inline-block';
 //@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 //@import "node_modules/@fortawesome/fontawesome-free/scss/regular";
 //@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
@@ -228,7 +229,7 @@ $fa-font-size-base: 1rem;
 @import "node_modules/@fortawesome/fontawesome-free/scss/variables";
 @import "node_modules/@fortawesome/fontawesome-free/scss/mixins";
 @import "node_modules/@fortawesome/fontawesome-free/scss/core";
-//@import "node_modules/@fortawesome/fontawesome-free/scss/larger";
+@import "node_modules/@fortawesome/fontawesome-free/scss/sizing";
 @import "node_modules/@fortawesome/fontawesome-free/scss/fixed-width";
 //@import "node_modules/@fortawesome/fontawesome-free/scss/list";
 //@import "node_modules/@fortawesome/fontawesome-free/scss/animated";
