@@ -2,7 +2,7 @@ function kh_getElement(id) {
     return document.getElementById(id);
 }
 
-function kh_createElement(elem){
+function kh_createElement(elem) {
     return document.createElement(elem);
 }
 
@@ -21,10 +21,10 @@ xhr.onload = function () {
         kh_getElement("siNo").innerHTML = responseObject.std.no;
         kh_getElement("siName").innerHTML = responseObject.std.name;
         kh_getElement("siCrn").innerHTML = responseObject.std.crn;
-        let siImg=kh_getElement("siImg");
-        siImg.setAttribute("src","###async_server###/userpics/"+responseObject.std.facimg);
+        let siImg = kh_getElement("siImg");
+        siImg.setAttribute("src", "###async_server###/userpics/" + responseObject.std.facimg);
         siImg.setAttribute("alt", responseObject.std.facname);
-        kh_getElement("siOuy").innerHTML=responseObject.std.facname;
+        kh_getElement("siOuy").innerHTML = responseObject.std.facname;
         kh_getElement("siEmail").setAttribute("href", "mailto:" + responseObject.std.facemail);
 
         //lab
@@ -58,23 +58,25 @@ xhr.onload = function () {
         });
 
         //safety quiz
-        let trq = kh_createElement("tr");
-        let thq = kh_createElement("th");
-        thq.setAttribute("colspan", "4");
-        thq.classList.add("text-end");
-        thq.innerHTML = "Safety Quiz";
-        let tdq=kh_createElement("td");
-        tdq.className = "text-center";
-        tdq.innerHTML=responseObject.std.quiz;
-        trq.append(thq, tdq);
-        kh_getElement("egTB").append(trq);
+        if (responseObject.qs > 0) {
+            let trq = kh_createElement("tr");
+            let thq = kh_createElement("th");
+            thq.setAttribute("colspan", "4");
+            thq.classList.add("text-end");
+            thq.innerHTML = "Safety Quiz";
+            let tdq = kh_createElement("td");
+            tdq.className = "text-center";
+            tdq.innerHTML = responseObject.std.quiz;
+            trq.append(thq, tdq);
+            kh_getElement("egTB").append(trq);
+        }
 
         //asistanlar
         Array.from(responseObject.ast).forEach(ast => {
 
             let td1 = kh_createElement("th");
             td1.setAttribute("scope", "col");
-            td1.innerHTML=ast.expno;
+            td1.innerHTML = ast.expno;
 
             let td2 = kh_createElement("td");
             let resim = kh_createElement("img");
@@ -103,11 +105,11 @@ xhr.onload = function () {
 
         kh_getElement("lsCon").classList.remove("d-none");
 
-    }else if(responseObject.s == 1){
+    } else if (responseObject.s == 1) {
 
         kh_getElement("nostd").classList.remove("d-none");
 
-    }else if (responseObject.s == 0) {
+    } else if (responseObject.s == 0) {
 
         kh_getElement("nodnm").classList.remove("d-none");
     }
