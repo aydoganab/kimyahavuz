@@ -41,7 +41,7 @@ xhr.onload = function () {
             //sınav yeri bilgileri
             if (Object.keys(responseObject.sinav_yeri).length > 0) {
 
-                document.getElementById("locdonem").innerHTML = responseObject.donem_tr;
+                document.getElementById("locdonem").innerHTML = responseObject.donem_en;
                 document.getElementById("locsy").innerHTML = responseObject.sinav_yeri.derslik;
                 document.getElementById("locgr").innerHTML = responseObject.sinav_yeri.grup;
                 document.getElementById("locsn").innerHTML = responseObject.sinav_yeri.sira_no;
