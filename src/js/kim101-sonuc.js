@@ -47,6 +47,15 @@ xhr.onload = function () {
                 document.getElementById("locsn").innerHTML = responseObject.sinav_yeri.sira_no;
 
                 document.getElementById("loc").classList.remove("d-none");
+            }else {
+                if (responseObject.student.grade == "VF"){
+                    let elem = document.getElementById('loccb');
+                    elem.classList.remove('pb-1');
+                    elem.innerHTML="Not allowed to enter the Final Exam. Grade is VF.";
+                    document.getElementById('loccf').remove();
+
+                    document.getElementById("loc").classList.remove("d-none");
+                }
             }
 
             //sinav notları
